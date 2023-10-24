@@ -22,18 +22,18 @@ type RedisConn struct {
 	DB       int    `json:"db"`
 }
 
-type RedisConnections struct {
+type DBConnections struct {
 	Redis map[string]*RedisConn `json:"redis"`
 }
 
-func (c *RedisConnections) GetRedisConn(connName string) (*RedisConn, bool) {
+func (c *DBConnections) GetRedisConn(connName string) (*RedisConn, bool) {
 	conn, ok := c.Redis[connName]
 	return conn, ok
 }
 
 type Meta struct {
-	Etcd             `json:"etcd"`
-	RedisConnections `json:"redis"`
+	Etcd          `json:"etcd"`
+	DBConnections `json:"db"`
 }
 
 var (
