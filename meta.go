@@ -16,8 +16,24 @@ type Etcd struct {
 	Endpoints        []string `json:"endpoints"`
 }
 
+type RedisConn struct {
+	Host     string `json:"host"`
+	Password string `json:"password"`
+	DB       int    `json:"db"`
+}
+
+type RedisConnections struct {
+	Redis map[string]*RedisConn `json:"redis"`
+}
+
+func (c *RedisConnections) GetRedisConn(connName string) (*RedisConn, bool) {
+	conn, ok := c.Redis[connName]
+	return conn, ok
+}
+
 type Meta struct {
-	Etcd `json:"etcd"`
+	Etcd             `json:"etcd"`
+	RedisConnections `json:"redis"`
 }
 
 var (
