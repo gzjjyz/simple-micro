@@ -3,9 +3,8 @@ package micro
 import (
 	"context"
 	"fmt"
-	"github.com/995933447/confloader"
+	"github.com/gzjjyz/confloader"
 	"github.com/gzjjyz/logger"
-	"github.com/gzjjyz/srvlib/utils"
 	"go.etcd.io/etcd/client/v3"
 	"sync"
 	"time"
@@ -31,9 +30,21 @@ func (c *DBConnections) GetRedisConn(connName string) (*RedisConn, bool) {
 	return conn, ok
 }
 
+type OBS struct {
+	Bucket  string `json:"bucket"`
+	Backup  int    `json:"backup"`
+	Expires int    `json:"expires"`
+}
+
+type Cloud struct {
+	Obs map[string]*OBS
+}
+
 type Meta struct {
+	Nats          string `json:"nats"`
 	Etcd          `json:"etcd"`
 	DBConnections `json:"db"`
+	Cloud         `json:"cloud"`
 }
 
 var (
@@ -59,25 +70,12 @@ func InitMeta(cfgFilePath string) error {
 	}
 
 	meta = &Meta{}
-	cfgLoader := confloader.NewLoader(cfgFilePath, 5*time.Second, meta)
+	cfgLoader := confloader.NewLoader(cfgFilePath, meta)
 	if err := cfgLoader.Load(); err != nil {
 		return err
 	}
 
 	hasInitMeta = true
-
-	watchMetaErrCh := make(chan error)
-	utils.ProtectGo(func() {
-		cfgLoader.WatchToLoad(watchMetaErrCh)
-	})
-	utils.ProtectGo(func() {
-		for {
-			err := <-watchMetaErrCh
-			if err != nil {
-				utils.SafeLogErr(err, true)
-			}
-		}
-	})
 
 	return nil
 }

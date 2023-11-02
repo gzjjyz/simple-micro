@@ -3,7 +3,7 @@ module github.com/gzjjyz/simple-micro
 go 1.20
 
 require (
-	github.com/995933447/confloader v0.0.0-20230314141707-e7b191386ae2
+	github.com/gzjjyz/confloader v0.0.0-20231102094413-74ca66013070
 	github.com/gzjjyz/logger v1.0.0
 	github.com/gzjjyz/srvlib v1.0.8
 	go.etcd.io/etcd/client/v3 v3.5.9
@@ -13,7 +13,6 @@ require (
 require (
 	github.com/995933447/simpletrace v0.0.0-20230217061256-c25a914bd376 // indirect
 	github.com/995933447/stringhelper-go v0.0.0-20221220072216-628db3bc29d8 // indirect
-	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect

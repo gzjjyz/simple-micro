@@ -1,11 +1,7 @@
-github.com/995933447/confloader v0.0.0-20230314141707-e7b191386ae2 h1:lElTU+vnP6+DR9W6kGbnHXL45zJsXFsWtvYt6bForCA=
-github.com/995933447/confloader v0.0.0-20230314141707-e7b191386ae2/go.mod h1:52j1FekZ42S3gc7Fy8A54Mr0H5MVbEbRLo8rG/HRY5U=
 github.com/995933447/simpletrace v0.0.0-20230217061256-c25a914bd376 h1:hIHav2TTYiAGn87d9CGiuuty5cT/YBOb5Uxs52FoDgs=
 github.com/995933447/simpletrace v0.0.0-20230217061256-c25a914bd376/go.mod h1:Kh2+nE3eCIOSIwSo8Sxj/MbWt1KPMJJz+9SHptuYr6s=
 github.com/995933447/stringhelper-go v0.0.0-20221220072216-628db3bc29d8 h1:q37SO0GTj/dk35jov187h3CACffZle6KjVzgGOrLkBM=
 github.com/995933447/stringhelper-go v0.0.0-20221220072216-628db3bc29d8/go.mod h1:cwkwj1/zndmaLbRYgQqy6qwY/ITAiEMdR+1BGssgXik=
-github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
-github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/benbjohnson/clock v1.1.0 h1:Q92kusRqC1XV2MjkWETPvjJVqKetz1OzxZB7mHJLju8=
 github.com/coreos/go-semver v0.3.1 h1:yi21YpKnrx1gt5R+la8n5WgS0kCrsPp33dmEyHReZr4=
 github.com/coreos/go-semver v0.3.1/go.mod h1:irMmmIw/7yzSRPWryHsK7EYSg09caPQL03VsM8rvUec=
@@ -24,6 +20,8 @@ github.com/golang/protobuf v1.5.3/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiu
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
+github.com/gzjjyz/confloader v0.0.0-20231102094413-74ca66013070 h1:pJvTOaAdlYdDpVu8UlYVLAAiYnnV4LYLICUJmGEsVSI=
+github.com/gzjjyz/confloader v0.0.0-20231102094413-74ca66013070/go.mod h1:24Rso5Kon5drWea/GPk6+rhMHTXYo4z18PF5CnqL9NI=
 github.com/gzjjyz/logger v1.0.0 h1:DVgTfpWnl7U0ikJrSLu8BVklbDp3o42xTJKvezZRu7M=
 github.com/gzjjyz/logger v1.0.0/go.mod h1:gprPXTGx81jPjvyzlmtAXXipb19GljNksgvb/RfBhHI=
 github.com/gzjjyz/srvlib v1.0.8 h1:hPoaL+kx5/JwLQQikm0a9GxlEzEK1HgSnCaZnIgeCLk=
