@@ -3,11 +3,12 @@ package micro
 import (
 	"context"
 	"fmt"
+	"net"
+	"net/http"
+
 	"github.com/gzjjyz/logger"
 	"github.com/gzjjyz/srvlib/utils"
 	"google.golang.org/grpc"
-	"net"
-	"net/http"
 )
 
 type Srv struct {
@@ -54,14 +55,14 @@ func (srv *Srv) Serve(ctx context.Context) error {
 		utils.ProtectGo(func() {
 			err := http.ListenAndServe(fmt.Sprintf("127.0.0.1:%d", srv.pprofPort), nil)
 			if err != nil {
-				logger.Errorf(err.Error())
+				logger.LogError(err.Error())
 			}
 		})
 	}
 
 	ip, err := utils.EvalVarToParseIp(srv.ipVar)
 	if err != nil {
-		logger.Errorf(err.Error())
+		logger.LogError(err.Error())
 		return err
 	}
 
@@ -79,7 +80,7 @@ func (srv *Srv) Serve(ctx context.Context) error {
 	if srv.regEtcd {
 		err = RegisterToEtcd(ctx, fmt.Sprintf("%s:%d", ip, srv.port), srv.name)
 		if err != nil {
-			logger.Errorf("err:%v", err)
+			logger.LogError("err:%v", err)
 			return err
 		}
 	}
@@ -90,7 +91,7 @@ func (srv *Srv) Serve(ctx context.Context) error {
 		return err
 	}
 	if err != nil {
-		logger.Errorf(err.Error())
+		logger.LogError(err.Error())
 		return err
 	}
 	return nil

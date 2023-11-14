@@ -3,11 +3,12 @@ package micro
 import (
 	"context"
 	"fmt"
-	"github.com/gzjjyz/confloader"
-	"github.com/gzjjyz/logger"
-	"go.etcd.io/etcd/client/v3"
 	"sync"
 	"time"
+
+	"github.com/gzjjyz/confloader"
+	"github.com/gzjjyz/logger"
+	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
 type Etcd struct {
@@ -95,7 +96,7 @@ func NewEtcdCliWithContext(ctx context.Context) (*clientv3.Client, error) {
 		DialTimeout: 5 * time.Second,
 	})
 	if err != nil {
-		logger.Errorf("err:%v", err)
+		logger.LogError("err:%v", err)
 		return nil, err
 	}
 
@@ -106,7 +107,7 @@ func NewEtcdCliWithContext(ctx context.Context) (*clientv3.Client, error) {
 	for _, url := range config.Endpoints {
 		_, err = etcdClient.Status(ctx, url)
 		if err != nil {
-			logger.Errorf("err:%v , url is %s", err, url)
+			logger.LogError("err:%v , url is %s", err, url)
 			return nil, err
 		}
 	}

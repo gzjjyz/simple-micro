@@ -2,6 +2,7 @@ package micro
 
 import (
 	"context"
+
 	"github.com/gzjjyz/logger"
 	"google.golang.org/grpc"
 )
@@ -38,7 +39,7 @@ func (cli *Cli) DialContext(ctx context.Context) error {
 	if cli.etcdDiscover {
 		dialOptions, etcdTarget, err := discoverToEtcd(cli.name)
 		if err != nil {
-			logger.Errorf("err:%v", err)
+			logger.LogError("err:%v", err)
 			return err
 		}
 		optList = append(optList, dialOptions...)
@@ -53,7 +54,7 @@ func (cli *Cli) DialContext(ctx context.Context) error {
 		optList...,
 	)
 	if err != nil {
-		logger.Errorf("dial %s failed , etcd target is %s , err:%v", cli.name, target, err)
+		logger.LogError("dial %s failed , etcd target is %s , err:%v", cli.name, target, err)
 		return err
 	}
 

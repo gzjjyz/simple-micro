@@ -2,11 +2,12 @@ package micro
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/gzjjyz/logger"
 	"go.etcd.io/etcd/client/v3/naming/resolver"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/balancer/roundrobin"
-	"time"
 )
 
 func discoverToEtcd(serverName string) ([]grpc.DialOption, string, error) {
@@ -14,14 +15,14 @@ func discoverToEtcd(serverName string) ([]grpc.DialOption, string, error) {
 
 	etcdClient, err := NewEtcdCliWithContext(WithGCtxTimeout(time.Second * 5))
 	if err != nil {
-		logger.Errorf("err:%v", err)
+		logger.LogError("err:%v", err)
 		return nil, "", err
 	}
 
 	target := fmt.Sprintf("etcd:///%s", serverName)
 	etcdResolverBuilder, err := resolver.NewBuilder(etcdClient)
 	if err != nil {
-		logger.Errorf("err:%v", err)
+		logger.LogError("err:%v", err)
 		return nil, "", err
 	}
 
