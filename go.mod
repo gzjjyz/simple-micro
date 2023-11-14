@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/gzjjyz/confloader v0.0.0-20231102094413-74ca66013070
 	github.com/gzjjyz/logger v1.0.1
-	github.com/gzjjyz/srvlib v1.0.8
+	github.com/gzjjyz/srvlib v1.0.9
 	go.etcd.io/etcd/client/v3 v3.5.9
 	google.golang.org/grpc v1.59.0
 )
