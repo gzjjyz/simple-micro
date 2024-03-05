@@ -42,10 +42,10 @@ type Cloud struct {
 }
 
 type Meta struct {
-	Nats          string `json:"nats"`
 	Etcd          `json:"etcd"`
 	DBConnections `json:"db"`
 	Cloud         `json:"cloud"`
+	path          string
 }
 
 var (
@@ -78,6 +78,8 @@ func InitMeta(cfgFilePath string) error {
 
 	hasInitMeta = true
 
+	meta.path = cfgFilePath
+
 	return nil
 }
 
@@ -87,6 +89,10 @@ func MustMeta() *Meta {
 	}
 
 	return meta
+}
+
+func (m *Meta) GetConfigPath() string {
+	return m.path
 }
 
 func NewEtcdCliWithContext(ctx context.Context) (*clientv3.Client, error) {
