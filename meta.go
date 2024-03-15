@@ -41,12 +41,18 @@ type Cloud struct {
 	Obs map[string]*OBS
 }
 
+type SdkSt struct {
+	AppId     uint32 `json:"appid"`
+	ApiSecret string `json:"api_secret"`
+	ApiUrl    string `json:"api_url"`
+}
+
 type Meta struct {
 	Etcd          `json:"etcd"`
 	DBConnections `json:"db"`
 	Cloud         `json:"cloud"`
 	path          string
-	SdkUrl        string `json:"sdkUrl"`
+	Sdk           SdkSt `json:"sdk"`
 }
 
 var (
