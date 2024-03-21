@@ -46,6 +46,7 @@ type Meta struct {
 	DBConnections `json:"db"`
 	Cloud         `json:"cloud"`
 	path          string
+	SdkUrl        string `json:"sdkUrl"`
 }
 
 var (
