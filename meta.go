@@ -31,6 +31,14 @@ func (c *DBConnections) GetRedisConn(connName string) (*RedisConn, bool) {
 	return conn, ok
 }
 
+type HuaWeiObs struct {
+	Endpoint   string
+	Ak         string
+	Sk         string
+	BucketName string
+	PathStyle  bool
+}
+
 type OBS struct {
 	Bucket  string `json:"bucket"`
 	Backup  int    `json:"backup"`
@@ -53,6 +61,7 @@ type Meta struct {
 	Cloud         `json:"cloud"`
 	path          string
 	Sdk           SdkSt `json:"sdk"`
+	HuaWeiObs     `json:"huawei_obs"`
 }
 
 var (
