@@ -56,6 +56,7 @@ type SdkSt struct {
 }
 
 type Meta struct {
+	AppId         uint32 `json:"app_id"`
 	Etcd          `json:"etcd"`
 	DBConnections `json:"db"`
 	Cloud         `json:"cloud"`
