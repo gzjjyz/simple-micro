@@ -56,15 +56,16 @@ type SdkSt struct {
 }
 
 type Meta struct {
-	AppId         uint32 `json:"app_id"`
-	Env           string `json:"env"`
-	Etcd          `json:"etcd"`
-	DBConnections `json:"db"`
-	Cloud         `json:"cloud"`
-	path          string
-	Sdk           SdkSt `json:"sdk"`
-	HuaWeiObs     `json:"huawei_obs"`
-	WfHealthUrl   string `json:"wf_health_url"`
+	AppId          uint32 `json:"app_id"`
+	Env            string `json:"env"`
+	Etcd           `json:"etcd"`
+	DBConnections  `json:"db"`
+	Cloud          `json:"cloud"`
+	path           string
+	Sdk            SdkSt `json:"sdk"`
+	HuaWeiObs      `json:"huawei_obs"`
+	WfHealthUrl    string `json:"wf_health_url"`
+	WfHealthApiKey string `json:"wf_health_api_key"`
 }
 
 var (
